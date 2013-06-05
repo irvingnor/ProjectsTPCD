@@ -13,14 +13,16 @@ void generaClave()
 struct Average {
     void operator()( const blocked_range<int>& range ) const {
         for( int i=range.begin(); i!=range.end(); ++i )
-        	vector<int> vI_tmp = vTercia_tercias[i].getTercia();
+        {
+        	vector<int> tmpI = vTercia_tercias[i].getTercia();
         	vector<int> xTmp;
 		for(int j=0;j<3;j++)
 		{
-			xTmp.push_back(clave[j]);
+			xTmp.push_back(tmpI[j] * clave[j]);
 		}
 		Tercia t_tmp(xTmp);
 		codigoEncriptado.push_back(t_tmp);
+	}
     }
 };
 
